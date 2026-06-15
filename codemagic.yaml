@@ -1,0 +1,15 @@
+workflows:
+  setup-sshx:
+    name: Setup SSHX (MacOS)
+    environment:
+      xcode: latest
+
+    scripts:
+      - name: Install SSHX
+        script: |
+          curl -sSf https://sshx.io/get | sh
+
+      - name: Run SSHX (keep alive)
+        script: |
+          echo "Starting SSHX..."
+          sshx
